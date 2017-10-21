@@ -1,4 +1,5 @@
-const { FuseBox, CSSPlugin, SassPlugin, WebIndexPlugin, Sparky, SourceMapPlainJsPlugin } = require("fuse-box");
+const { FuseBox, CSSPlugin, SassPlugin,
+    WebIndexPlugin, Sparky } = require("fuse-box");
 
 const fuse = FuseBox.init({
   homeDir: "src",
@@ -12,10 +13,6 @@ const fuse = FuseBox.init({
     CSSPlugin(),
     WebIndexPlugin({path: "."})
   ],
-  sourceMap: {
-	  bundleReference: "sourcemaps.js.map",
-	  outFile: "sourcemaps.js.map",
-	},
 });
 
 fuse.dev();

@@ -1,5 +1,3 @@
-import { hello } from "./hello";
-import "./main.css";
 import "@blueprintjs/core/dist/blueprint.css"
 import "./extra.scss";
 import * as React from 'react';
@@ -14,7 +12,8 @@ if (!appEl) {
     appEl.setAttribute("id", appId);
 }
 
+const onClick = () => console.log(wefwefewf);
 ReactDOM.render(
-    <Button className={"pt-intent-primary"}>Click me!</Button>,
+    <Button onClick={onClick} className={"pt-intent-primary"}>Click me!</Button>,
     appEl
 );
