@@ -21,7 +21,7 @@ const fuse = FuseBox.init({
 fuse.dev();
 
 fuse.bundle("app")
-  .instructions("> index.ts")
+  .instructions("> index.tsx")
   .watch()
   .hmr();
 

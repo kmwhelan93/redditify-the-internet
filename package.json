@@ -7,8 +7,14 @@
   "author": "Kevin Whelan <km.whelan93@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/react": "^16.0.16",
+    "@types/react-dom": "^16.0.2",
     "fuse-box": "^2.3.3",
     "node-sass": "^4.5.3",
     "typescript": "^2.5.3"
+  },
+  "dependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
   }
 }
