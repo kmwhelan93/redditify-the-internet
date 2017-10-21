@@ -1,0 +1,9 @@
+{
+  "name": "redditify-the-internet",
+  "version": "0.0.0",
+  "description": "Chrome extension that adds voting and comments to every site",
+  "main": "index.js",
+  "repository": "git@github.com:kmwhelan93/redditify-the-internet.git",
+  "author": "Kevin Whelan <km.whelan93@gmail.com>",
+  "license": "MIT"
+}
