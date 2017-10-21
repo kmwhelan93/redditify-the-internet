@@ -15,5 +15,13 @@
     "activeTab",
     "storage",
     "https://lichix3wqg.execute-api.us-west-1.amazonaws.com/*"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": [],
+      "js": ["contentscript.js"]
+    }
   ]
 }
