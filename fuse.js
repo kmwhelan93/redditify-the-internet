@@ -37,11 +37,16 @@ Sparky.task('config', () => {
     app = fuse.bundle('contentscript').instructions('>index.tsx');
 });
 
-Sparky.task('default', ['clean', 'config'], () => {
+Sparky.task('default', ['clean', 'watch:assets', 'config'], () => {
     fuse.dev();
     // add dev instructions
     app.watch().hmr();
     return fuse.run();
+});
+
+Sparky.task("watch:assets", () => {
+    return Sparky.watch("**/*.+(svg|png|jpg|gif|woff)", {base: "./src"})
+        .dest("./dist");
 });
 
 Sparky.task('clean', () => Sparky.src(outputFolder).clean(outputFolder));
@@ -57,7 +62,7 @@ Sparky.task("extension-copy", () => {
     return Sparky.watch("./extension/**/**.*").dest(outputFolder + "$name")
 });
 
-Sparky.task('extension', ['extension-env', 'extension-copy', 'config'], () => {
+Sparky.task('extension', ['extension-env', 'extension-copy', 'watch:assets', 'config'], () => {
     // comment out to prevent dev server from running (left for the demo)
     app.watch();
     return fuse.run();
