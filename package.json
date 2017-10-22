@@ -6,18 +6,25 @@
   "repository": "git@github.com:kmwhelan93/redditify-the-internet.git",
   "author": "Kevin Whelan <km.whelan93@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "node fuse",
+    "dist": "node fuse dist",
+    "extension": "node fuse extension"
+  },
   "devDependencies": {
     "@types/react": "^16.0.16",
     "@types/react-addons-css-transition-group": "^15.0.3",
     "@types/react-dom": "^16.0.2",
     "fuse-box": "^2.3.3",
     "node-sass": "^4.5.3",
-    "typescript": "^2.5.3"
+    "typescript": "^2.5.3",
+    "uglify-js": "^3.1.5"
   },
   "dependencies": {
     "@blueprintjs/core": "^1.32.0",
     "react": "^16.0.0",
     "react-addons-css-transition-group": "^15.6.2",
-    "react-dom": "^16.0.0"
+    "react-dom": "^16.0.0",
+    "reflect-metadata": "^0.1.10"
   }
 }

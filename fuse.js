@@ -1,36 +1,64 @@
-const { FuseBox, CSSPlugin, SassPlugin,
-    WebIndexPlugin, Sparky } = require("fuse-box");
+const {
+    FuseBox,
+    EnvPlugin,
+    SVGPlugin,
+    CSSPlugin,
+    BabelPlugin,
+    QuantumPlugin,
+    WebIndexPlugin,
+    Sparky,
+    SassPlugin
+} = require('fuse-box');
 
-const fuse = FuseBox.init({
-  homeDir: "src",
-  root: ['dist', 'src'],
-  output: "dist/$name.js",
-  sourceMaps: true,
-  log: true,
-  debug: true,
-  plugins: [
-    [SassPlugin(), CSSPlugin()],
-    CSSPlugin(),
-    WebIndexPlugin({path: "."})
-  ],
+let fuse, app, isProduction, outputFolder = "dist/", idName = "redditify-the-web";
+
+Sparky.task('config', () => {
+    fuse = new FuseBox({
+        homeDir: 'src/',
+        log: true,
+        debug: true,
+        sourceMaps: !isProduction,
+        target: 'browser',
+        output: outputFolder + '$name.js',
+        useTypescriptCompiler: true,
+        experimentalFeatures: true,
+        plugins: [
+            EnvPlugin({ NODE_ENV: isProduction ? 'production' : 'development', ID_NAME: idName}),
+            SVGPlugin(),
+            [SassPlugin(), CSSPlugin()],
+            CSSPlugin(),
+            WebIndexPlugin({
+                template: 'src/index.html'
+            })
+        ]
+    });
+
+    // bundle app
+    app = fuse.bundle('contentscript').instructions('>index.tsx');
 });
 
-fuse.dev();
-
-fuse.bundle("app")
-  .instructions("> index.tsx")
-  .watch()
-  .hmr();
-
-Sparky.task("clean", () => {
-  return Sparky.src("dist").clean("dist");
+Sparky.task('default', ['clean', 'config'], () => {
+    fuse.dev();
+    // add dev instructions
+    app.watch().hmr();
+    return fuse.run();
 });
 
-Sparky.task("watch:images", () => {
-  return Sparky.watch("**/*.+(svg|png|jpg|gif)", {base: "./src"})
-    .dest("./dist");
+Sparky.task('clean', () => Sparky.src(outputFolder).clean(outputFolder));
+Sparky.task('prod-env', ['clean'], () => {
+    isProduction = true;
 });
 
-Sparky.task("default", ["clean", "watch:images"], () => {
-  fuse.run();
+Sparky.task("extension-env", ['clean'], () => {
+    idName = "redditify-the-web-extension";
+});
+
+Sparky.task("extension-copy", () => {
+    return Sparky.watch("./extension/**/**.*").dest(outputFolder + "$name")
+});
+
+Sparky.task('extension', ['extension-env', 'extension-copy', 'config'], () => {
+    // comment out to prevent dev server from running (left for the demo)
+    app.watch();
+    return fuse.run();
 });
