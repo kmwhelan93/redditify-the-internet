@@ -1,12 +1,13 @@
 import {Action, combineReducers} from "redux";
 import {ActionTypes} from "../actions/index";
+import {DEFAULT_STATE} from "../state";
 
 export interface IAction {
     type: string;
     payload: any;
 }
 
-const showCommentsReducer = (state: boolean = false, action: IAction) => {
+const showCommentsReducer = (state: boolean = DEFAULT_STATE.showComments, action: IAction) => {
     switch(action.type) {
         case ActionTypes.SHOW_COMMENTS:
             return true;
