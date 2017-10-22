@@ -1,0 +1,1 @@
+export const PANEL_CONTENT_WIDTH = 30;
