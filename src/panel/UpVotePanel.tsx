@@ -3,6 +3,7 @@ import Draggable from "react-draggable";
 import {VoteContainer} from "../votes/VoteContainer";
 import {CommentCounter} from "../comments/CommentCounter";
 import {CancelIcon} from "../cancel/CancelIcon";
+import {PANEL_CONTENT_WIDTH} from "../util/Constants";
 
 export interface IUpVotePanelProps {}
 
@@ -22,7 +23,7 @@ class UpVotePanelImpl extends React.Component<IUpVotePanelProps, {isOpen: boolea
                     className={"vertical-list pt-card"}
                 >
                     <VoteContainer />
-                    <CommentCounter style={{marginBottom: "0px"}} />
+                    <CommentCounter style={{marginBottom: "0px", height: PANEL_CONTENT_WIDTH}} />
                     <CancelIcon style={{width: "12px", height: "12px",
                         position: "absolute", right: "5px", top: "5px",}} fill={"#5C7080"}
                                 className={"pointer"} onClick={this.toggleOpen.bind(this)}/>

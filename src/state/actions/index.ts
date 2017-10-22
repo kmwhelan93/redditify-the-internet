@@ -1,0 +1,5 @@
+export const ActionTypes = {
+    SHOW_COMMENTS: "SHOW_COMMENTS",
+    HIDE_COMMENTS: "HIDE_COMMENTS",
+    TOGGLE_COMMENTS: "TOGGLE_COMMENTS",
+};
