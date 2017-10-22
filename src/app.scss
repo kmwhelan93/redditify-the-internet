@@ -8,9 +8,9 @@ svg.selected {
 }
 
 .vertical-list {
-  display: flex;
-  flex-direction: column;
-}
+   display: flex;
+   flex-direction: column;
+ }
 
 .vertical-list > div {
   margin-bottom: 10px;
@@ -20,6 +20,28 @@ svg.selected {
   margin-bottom: 0px;
 }
 
+.horizontal-list {
+  display: flex;
+}
+
+.horizontal-list > div {
+  margin-right: 10px;
+}
+
+.horizontal-list > div:last-child {
+  margin-right: 0px;
+}
+
 .pointer {
   cursor: pointer;
+}
+
+.show-comments {
+  transition: width 1000ms;
+  width: 400px;
+}
+
+.hide-comments {
+  transition: width 1000ms;
+  width: 0;
 }

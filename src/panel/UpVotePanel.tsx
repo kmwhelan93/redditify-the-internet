@@ -2,7 +2,7 @@ import * as React from "react";
 import Draggable from "react-draggable";
 import {VoteContainer} from "../votes/VoteContainer";
 import {CommentCounter} from "../comments/CommentCounter";
-import {CancelIcon} from "../cancel/CancelIcon";
+import {CancelIcon} from "../components/icons/CancelIcon";
 import {PANEL_CONTENT_WIDTH} from "../util/Constants";
 
 export interface IUpVotePanelProps {}

@@ -1,7 +1,7 @@
 import * as React from "react";
 import {Icon} from "@blueprintjs/core";
-import {DownVote} from "./DownVote";
-import {UpVote} from "./UpVote";
+import {DownVote} from "../components/icons/DownVote";
+import {UpVote} from "../components/icons/UpVote";
 import {PANEL_CONTENT_WIDTH} from "../util/Constants";
 
 class VoteContainerImpl extends React.Component<{}, {count: number}> {

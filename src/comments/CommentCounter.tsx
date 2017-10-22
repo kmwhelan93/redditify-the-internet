@@ -1,5 +1,5 @@
 import * as React from "react";
-import {CommentIcon} from "./CommentIcon";
+import {CommentIcon} from "../components/icons/CommentIcon";
 import {PANEL_CONTENT_WIDTH} from "../util/Constants";
 import {connect} from "react-redux";
 import {ActionTypes} from "../state/actions/index";
