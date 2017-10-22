@@ -7,3 +7,19 @@ svg.selected {
   fill: #D9822B;
 }
 
+.vertical-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.vertical-list > div {
+  margin-bottom: 10px;
+}
+
+.vertical-list > div:last-child {
+  margin-bottom: 0px;
+}
+
+.pointer {
+  cursor: pointer;
+}

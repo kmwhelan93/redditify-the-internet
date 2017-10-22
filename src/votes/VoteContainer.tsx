@@ -10,9 +10,9 @@ class VoteContainerImpl extends React.Component<{}, {count: number}> {
     public render() {
         return (
             <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
-                <UpVote className={"selected"} width={20} height={10} />
-                {this.state.count}
-                <DownVote className={"unselected"} width={20} height={10} />
+                <UpVote className={"selected"} width={30} height={15} />
+                <span style={{fontSize: "20px"}}>{this.state.count}</span>
+                <DownVote className={"unselected"} width={30} height={15} />
             </div>
         )
     }
